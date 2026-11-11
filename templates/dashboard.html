@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProFuel | Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark">P</div><div><b>PROFUEL</b><small>Nutrition systems</small></div></div>
+    <div class="workspace-label">WORKSPACE</div>
+    <nav>
+      <a class="nav-link active" href="#" data-page="overview"><span>▦</span> Overview</a>
+      <a class="nav-link" href="#" data-page="inventory"><span>▤</span> Inventory <i class="nav-count">4</i></a>
+      <a class="nav-link" href="#" data-page="orders"><span>⇄</span> Orders</a>
+      <a class="nav-link" href="#" data-page="customers"><span>♙</span> Customers</a>
+      <a class="nav-link" href="#" data-page="products"><span>◈</span> Products</a>
+      <a class="nav-link" href="#" data-page="services"><span>✧</span> Services</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="help-card"><div class="help-icon">✦</div><b>Need a hand?</b><p>Ask the ProFuel assistant about your business.</p><button onclick="openChat()">Chat with AI <span>↗</span></button></div>
+      <a class="nav-link" href="#" data-page="settings"><span>⚙</span> Settings</a>
+      <div class="profile"><div class="avatar">NA</div><div><b>Admin User</b><small>Administrator</small></div><span class="dots">•••</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+      <div class="crumb">Workspace <span>/</span> <b id="pageCrumb">Overview</b></div>
+      <div class="top-actions"><div class="searchbox">⌕ <input id="globalSearch" placeholder="Search anything..."></div><button class="icon-btn" title="Notifications">♧<i></i></button><div class="avatar small">NA</div></div>
+    </header>
+
+    <section class="page-content" id="overviewPage">
+      <div class="welcome-row"><div><div class="eyebrow">TUESDAY, 11 NOVEMBER 2026</div><h1>Good morning, Admin <span>✦</span></h1><p>Here's what's happening with your protein business today.</p></div><button class="primary-btn" onclick="showToast('Report export is a demo action.')">↓ <span>Export report</span></button></div>
+
+      <div class="metrics">
+        <article class="metric-card"><div class="metric-top"><span>Total revenue</span><span class="metric-icon green">₹</span></div><div class="metric-value">₹4,82,650</div><div class="metric-foot"><span class="positive">↗ 12.8%</span> <span>vs last month</span></div><div class="sparkline"><i style="height:30%"></i><i style="height:48%"></i><i style="height:39%"></i><i style="height:62%"></i><i style="height:51%"></i><i style="height:76%"></i><i style="height:92%"></i></div></article>
+        <article class="metric-card"><div class="metric-top"><span>Total orders</span><span class="metric-icon purple">▣</span></div><div class="metric-value">1,284</div><div class="metric-foot"><span class="positive">↗ 8.2%</span> <span>vs last month</span></div><div class="metric-sub">Across all sales channels</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Active customers</span><span class="metric-icon orange">♙</span></div><div class="metric-value">864</div><div class="metric-foot"><span class="positive">↗ 5.4%</span> <span>vs last month</span></div><div class="metric-sub">Customers who purchased recently</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Products in stock</span><span class="metric-icon blue">◈</span></div><div class="metric-value">218</div><div class="metric-foot"><span class="negative">4 need attention</span></div><div class="metric-sub">Across 18 product variants</div></article>
+      </div>
+
+      <div class="content-grid">
+        <section class="panel revenue-panel"><div class="panel-heading"><div><h2>Revenue overview</h2><p>Monitor your sales performance</p></div><select><option>Last 7 days</option><option>Last 30 days</option><option>This year</option></select></div>
+          <div class="chart-summary"><strong>₹1,26,840</strong><span class="positive">↗ 10.6%</span><small>Compared to previous period</small></div>
+          <div class="chart-wrap"><div class="y-labels"><span>₹40k</span><span>₹30k</span><span>₹20k</span><span>₹10k</span><span>₹0</span></div><div class="chart"><div class="gridlines"><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 700 210" preserveAspectRatio="none" aria-label="Revenue trend chart"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#20a875" stop-opacity=".22"/><stop offset="1" stop-color="#20a875" stop-opacity="0"/></linearGradient></defs><path d="M0 165 C35 155 45 130 90 140 S145 115 180 126 S230 95 270 110 S325 72 360 90 S420 48 450 75 S510 55 540 61 S600 20 630 42 S670 22 700 12 L700 210 L0 210Z" fill="url(#area)"/><path d="M0 165 C35 155 45 130 90 140 S145 115 180 126 S230 95 270 110 S325 72 360 90 S420 48 450 75 S510 55 540 61 S600 20 630 42 S670 22 700 12" fill="none" stroke="#15966b" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><div class="x-labels"><span>05 Nov</span><span>06 Nov</span><span>07 Nov</span><span>08 Nov</span><span>09 Nov</span><span>10 Nov</span><span>11 Nov</span></div></div></div>
+        </section>
+        <section class="panel channel-panel"><div class="panel-heading"><div><h2>Sales channels</h2><p>Where your orders come from</p></div><button class="more-btn">•••</button></div><div class="donut-area"><div class="donut"><div><b>1,284</b><small>Orders</small></div></div></div><div class="legend"><div><i class="dot d1"></i><span>Website</span><b>48%</b></div><div><i class="dot d2"></i><span>Marketplaces</span><b>32%</b></div><div><i class="dot d3"></i><span>Gym partners</span><b>20%</b></div></div></section>
+      </div>
+
+      <div class="bottom-grid">
+        <section class="panel"><div class="panel-heading"><div><h2>Recent orders</h2><p>Latest customer transactions</p></div><a href="#" onclick="navigate('orders');return false">View all ↗</a></div><div class="table-scroll"><table><thead><tr><th>ORDER ID</th><th>CUSTOMER</th><th>DATE</th><th>AMOUNT</th><th>STATUS</th></tr></thead><tbody>{% for o in orders[:4] %}<tr><td class="order-id">{{o.id}}</td><td>{{o.customer}}</td><td>{{o.date}}</td><td>₹{{"{:,}".format(o.amount)}}</td><td><span class="status {{o.status|lower}}">{{o.status}}</span></td></tr>{% endfor %}</tbody></table></div></section>
+        <section class="panel stock-panel"><div class="panel-heading"><div><h2>Low stock alerts</h2><p>Products that need restocking</p></div><a href="#" onclick="navigate('inventory');return false">Manage ↗</a></div>{% for p in products if p.stock < 20 %}<div class="stock-item"><div class="product-thumb">{{'PB' if 'Bar' in p.name else 'PP'}}</div><div class="stock-info"><b>{{p.name}}</b><small>{{p.sku}}</small><div class="stock-track"><i style="width:{{p.stock*3}}%"></i></div></div><strong>{{p.stock}} <small>left</small></strong></div>{% endfor %}</section>
+      </div>
+    </section>
+
+    <section class="page-content hidden" id="genericPage">
+      <div class="welcome-row"><div><div class="eyebrow">PROFUEL MANAGEMENT</div><h1 id="genericTitle">Inventory</h1><p id="genericSubtitle">Manage your business operations in one place.</p></div><button class="primary-btn" id="genericAction" onclick="openAddProduct()">＋ <span>Add product</span></button></div>
+      <section class="panel generic-panel"><div class="panel-heading"><div><h2 id="tableTitle">Inventory list</h2><p>Live demo workspace data</p></div><div class="searchbox table-search">⌕ <input id="tableSearch" placeholder="Filter records..." oninput="filterTable()"></div></div><div id="genericContent"></div></section>
+    </section>
+  </main>
+</div>
+
+<div class="chat-launch" onclick="openChat()">✦ <span>ProFuel AI</span></div>
+<div class="chat-window" id="chatWindow"><div class="chat-head"><div><b>✦ ProFuel Assistant</b><small>Business dashboard helper</small></div><button onclick="closeChat()">×</button></div><div class="chat-messages" id="chatMessages"><div class="bot-msg">Hi! I'm your ProFuel assistant. Ask me about inventory, orders, sales, or customers.</div></div><form class="chat-input" onsubmit="sendChat(event)"><input id="chatInput" placeholder="Ask something..." autocomplete="off"><button>➤</button></form></div>
+
+<div class="modal-backdrop" id="productModal"><div class="modal"><div class="modal-heading"><div><h2>Add a product</h2><p>Enter the basic product information.</p></div><button onclick="closeModal()">×</button></div><form id="productForm"><label>Product name<input name="name" required placeholder="e.g. Whey Isolate 90"></label><div class="form-row"><label>Category<select name="category"><option>Whey Protein</option><option>Plant Protein</option><option>Protein Snacks</option><option>Accessories</option></select></label><label>SKU<input name="sku" required placeholder="WPI-001"></label></div><div class="form-row"><label>Stock quantity<input name="stock" type="number" min="0" required></label><label>Price (₹)<input name="price" type="number" min="0" required></label></div><div class="modal-actions"><button type="button" class="secondary-btn" onclick="closeModal()">Cancel</button><button class="primary-btn">Save product</button></div></form></div></div>
+<div class="toast" id="toast"></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
